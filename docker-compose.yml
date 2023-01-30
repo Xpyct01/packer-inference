@@ -20,6 +20,7 @@ services:
     image: grafana/grafana:latest
     volumes:
       - ./grafana/datasource.yml:/etc/grafana/provisioning/datasource.yml
+      - ./grafana/dashboard.yml:/etc/grafana/provisioning/dashboard.yml
     ports:
       - 3000:3000
     depends_on:
