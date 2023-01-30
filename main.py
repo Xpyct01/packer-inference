@@ -1,10 +1,12 @@
 from flask import Flask, request
+from prometheus_flask_exporter import PrometheusMetrics
 import joblib
 import json
 
 
 MODEL_PATH = "model.gz"
 app = Flask(__name__)
+metrics = PrometheusMetrics(app)
 
 
 def get_predictions(input_data):
@@ -22,4 +24,3 @@ def predict():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
-

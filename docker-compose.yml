@@ -1,0 +1,26 @@
+version: '1'
+
+services:
+  app:
+    build:
+      context: app
+    container_name: app
+    ports:
+      - "5000:5000"
+
+  prometheus:
+    container_name: prometheus
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus/config.yml:/etc/prometheus/prometheus.yml
+    depends_on:
+      - app
+
+  grafana:
+    image: grafana/grafana:latest
+    volumes:
+      - ./grafana/datasource.yml:/etc/grafana/provisioning
+    ports:
+      - 3000:3000
+    depends_on:
+      - prometheus
