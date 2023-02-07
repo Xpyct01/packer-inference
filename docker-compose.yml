@@ -9,8 +9,9 @@ services:
       - "5000:5000"
 
   prometheus:
+    build:
+      context: prometheus
     container_name: prometheus
-    image: prom/prometheus:latest
     volumes:
       - ./prometheus/config.yml:/etc/prometheus/prometheus.yml
     ports:
