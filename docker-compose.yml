@@ -10,10 +10,9 @@ services:
 
   prometheus:
     container_name: prometheus
-    build:
-      context: prometheus
+    image: prom/prometheus:latest
     volumes:
-      - ./prometheus:/etc/prometheus
+      - ./prometheus/config.yml:/etc/prometheus/prometheus.yml
     ports:
       - "9090:9090"
     depends_on:
