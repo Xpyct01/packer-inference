@@ -27,6 +27,7 @@ spec:
       containers:
         - image: prometheus:latest
           name: prometheus
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 9090
           resources: {}
