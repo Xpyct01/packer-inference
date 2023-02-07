@@ -25,7 +25,10 @@ spec:
         io.kompose.service: prometheus
     spec:
       containers:
-        - image: prom/prometheus:latest
+        - args:
+            - --web.enable-lifecycle
+            - --config.file=/etc/prometheus/prometheus.yml
+          image: prom/prometheus:latest
           name: prometheus
           ports:
             - containerPort: 9090
