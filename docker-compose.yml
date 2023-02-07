@@ -9,10 +9,9 @@ services:
       - "5000:5000"
 
   prometheus:
-    container_name: prometheus
+    container_name: prometheus-local
     build:
-      context: .
-      dockerfile: ./prometheus/Dockerfile
+      context: prometheus
     volumes:
       - ./prometheus:/etc/prometheus
     ports:
