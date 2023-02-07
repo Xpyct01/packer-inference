@@ -9,7 +9,7 @@ services:
       - "5000:5000"
 
   prometheus:
-    container_name: prometheus-local
+    container_name: prometheus
     build:
       context: prometheus
     volumes:
