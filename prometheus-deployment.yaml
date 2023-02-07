@@ -31,12 +31,5 @@ spec:
           ports:
             - containerPort: 9090
           resources: {}
-          volumeMounts:
-            - mountPath: /etc/prometheus
-              name: prometheus-hostpath0
       restartPolicy: Always
-      volumes:
-        - hostPath:
-            path: /home/kali22/packer-inference/prometheus
-          name: prometheus-hostpath0
 status: {}
