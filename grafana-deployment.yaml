@@ -38,9 +38,9 @@ spec:
       restartPolicy: Always
       volumes:
         - hostPath:
-            path: /home/kali22/packer-inference/grafana/datasource.yml
+            path: ./grafana/datasource.yml
           name: grafana-hostpath0
         - hostPath:
-            path: /home/kali22/packer-inference/grafana/dashboard.yml
+            path: ./grafana/dashboard.yml
           name: grafana-hostpath1
 status: {}
