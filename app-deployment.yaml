@@ -24,7 +24,7 @@ spec:
         io.kompose.service: app
     spec:
       containers:
-        - image: app
+        - image: 699281850461.dkr.ecr.us-east-2.amazonaws.com/ml-cluster-docker:app
           name: app
           imagePullPolicy: IfNotPresent
           ports:
