@@ -34,19 +34,19 @@ spec:
             - containerPort: 9090
           resources: {}
           volumeMounts:
-            - name: prometheus-config
+            - name: prometheus-config-volume
               mountPath: /etc/prometheus
-            - name: prometheus-storage
+            - name: prometheus-storage-volume
               mountPath: /prometheus
       restartPolicy: Always
 
       volumes:
-        - name: prometheus-config
+        - name: prometheus-config-volume
           configMap:
             defaultMode: 420
             name: prometheus-config
 
-        - name: prometheus-storage
+        - name: prometheus-storage-volume
           persistentVolumeClaim:
             claimName: prometheus-pvc
 status: {}
