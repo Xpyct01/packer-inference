@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    kompose.cmd: kompose convert --volumes hostPath
+    kompose.cmd: kompose convert
     kompose.version: 1.26.0 (40646f47)
   creationTimestamp: null
   labels:
@@ -13,12 +13,11 @@ spec:
   selector:
     matchLabels:
       io.kompose.service: grafana
-  strategy:
-    type: Recreate
+  strategy: {}
   template:
     metadata:
       annotations:
-        kompose.cmd: kompose convert --volumes hostPath
+        kompose.cmd: kompose convert
         kompose.version: 1.26.0 (40646f47)
       creationTimestamp: null
       labels:
