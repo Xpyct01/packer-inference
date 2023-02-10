@@ -12,18 +12,13 @@ services:
     build:
       context: prometheus
     container_name: prometheus
-    volumes:
-      - ./prometheus/config.yml:/etc/prometheus/prometheus.yml
     ports:
       - "9090:9090"
     depends_on:
       - "app"
 
   grafana:
-    image: grafana/grafana:latest
-    volumes:
-      - ./grafana/datasource.yml:/etc/grafana/provisioning/datasource.yml
-      - ./grafana/dashboard.yml:/etc/grafana/provisioning/dashboard.yml
+    container_name: grafana
     ports:
       - "3000:3000"
     depends_on:

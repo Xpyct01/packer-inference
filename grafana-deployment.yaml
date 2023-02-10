@@ -25,22 +25,10 @@ spec:
         io.kompose.service: grafana
     spec:
       containers:
-        - image: grafana/grafana:latest
+        - image: 699281850461.dkr.ecr.us-east-2.amazonaws.com/ml-cluster-docker:grafana
           name: grafana
           ports:
             - containerPort: 3000
           resources: {}
-          volumeMounts:
-            - mountPath: /etc/grafana/provisioning/datasource.yml
-              name: grafana-hostpath0
-            - mountPath: /etc/grafana/provisioning/dashboard.yml
-              name: grafana-hostpath1
       restartPolicy: Always
-      volumes:
-        - hostPath:
-            path: ./grafana/datasource.yml
-          name: grafana-hostpath0
-        - hostPath:
-            path: ./grafana/dashboard.yml
-          name: grafana-hostpath1
 status: {}
