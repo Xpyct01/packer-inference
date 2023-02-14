@@ -27,7 +27,6 @@ spec:
       containers:
         - image: prom/prometheus:latest
           name: prometheus
-          user: root
           args:
             - '--storage.tsdb.path=/prometheus'
             - '--config.file=/etc/prometheus/prometheus.yml'
@@ -40,6 +39,12 @@ spec:
             - name: prometheus-storage-volume
               mountPath: /prometheus
       restartPolicy: Always
+
+      securityContext:
+        fsGroup: 65534
+        runAsGroup: 65534
+        runAsNonRoot: true
+        runAsUser: 65534
 
       volumes:
         - name: prometheus-config-volume
