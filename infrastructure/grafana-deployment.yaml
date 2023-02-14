@@ -37,6 +37,11 @@ spec:
               readOnly: false
       restartPolicy: Always
 
+      securityContext:
+        runAsUser: 472
+        runAsGroup: 472
+        fsGroup: 472
+
       volumes:
         - name: grafana-storage
           persistentVolumeClaim:
